@@ -2,6 +2,7 @@
 js四则运算小数精准度
 # 使用方法
 由于只是一个简单的四则运算封装,所以模块请自行处理
+###+ add() -sub() *mul() /div()
 ```
 // node导出
 module.exports = class Compute...
