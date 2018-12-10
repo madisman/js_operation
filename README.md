@@ -11,10 +11,10 @@ export default class Compute...
 
 // 使用
 node引入
-const Cal = require('./cal.js');
+const Cal = require('./cal.js'); // 自己命名的文件名
 
 // es6引入
-import Cal from './cal.js');
+import Cal from './cal.js'); // 自己命名的文件名
 
 // 使用 链式
 new Cal(0.1).add(0.2).getValue(); // 0.3
