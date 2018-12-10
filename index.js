@@ -2,42 +2,68 @@ class Compute {
     constructor(initNum) {
         this.result = initNum ? initNum : 0;
     }
+
     // 加
-    add(num) {
-        if (!num) {
+    add(...args) {
+        if (args.length === 0) {
             return this;
         }
-        const long = getLong(this.result, num);
-        this.result = (this.result * (10 ** long) + num * (10 ** long)) / (10 ** long);
+        args.forEach(item => {
+            item = Number(item);
+            if (isNaN(item)) {
+                throw 'please input numbers';
+            }
+            const long = getLong(this.result, item);
+            this.result = (this.result * (10 ** long) + item * (10 ** long)) / (10 ** long);
+        });
         return this;
     }
     // 减
-    sub(num) {
-        if (!num) {
+    sub(...args) {
+        if (args.length === 0) {
             return this;
         }
-        const long = getLong(this.result, num);
-        this.result = (this.result * (10 ** long) - num * (10 ** long)) / (10 ** long);
+        args.forEach(item => {
+            item = Number(item);
+            if (isNaN(item)) {
+                throw 'please input numbers';
+            }
+            const long = getLong(this.result, item);
+            this.result = (this.result * (10 ** long) - item * (10 ** long)) / (10 ** long);
+        });
         return this;
     }
     // 乘
-    mul(num) {
-        if (!num) {
+    mul(...args) {
+        if (args.length === 0) {
             return this;
         }
-        const long = getLong(this.result, num);
-        this.result = (this.result * (10 ** long) * (num * (10 ** long))) / (10 ** long) / (10 ** long);
+        args.forEach(item => {
+            item = Number(item);
+            if (isNaN(item)) {
+                throw 'please input numbers';
+            }
+            const long = getLong(this.result, item);
+            this.result = (this.result * (10 ** long) * (item * (10 ** long))) / (10 ** long) / (10 ** long);
+        });
         return this;
     }
     // 除
-    div(num) {
-        if (!num) {
+    div(...args) {
+        if (args.length === 0) {
             return this;
         }
-        const long = getLong(this.result, num);
-        this.result = (this.result * (10 ** long) / (num * (10 ** long)));
+        args.forEach(item => {
+            item = Number(item);
+            if (isNaN(item)) {
+                throw 'please input numbers';
+            }
+            const long = getLong(this.result, item);
+            this.result = (this.result * (10 ** long) / (item * (10 ** long)));
+        });
         return this;
     }
+    // 获得结果
     getValue() {
         return this.result;
     }
